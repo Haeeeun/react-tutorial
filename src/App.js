@@ -2,7 +2,7 @@ import Counter from './Counter';
 
 function App() {
   return (
-    <Counter></Counter>
+    <Counter>test</Counter>
   );
 }
 
