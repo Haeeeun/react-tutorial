@@ -8,24 +8,7 @@ function User({ user }) {
   );
 }
 
-function UserList() {
-  const users = [
-    {
-      id: 1,
-      username: 'haeeun',
-      email: 'hceaan@naver.com'
-    },
-    {
-      id: 2,
-      username: 'haeeun2',
-      email: 'hceaan2@naver.com'
-    },
-    {
-      id: 3,
-      username: 'haeeun3',
-      email: 'hceaan3@naver.com'
-    }
-  ];
+function UserList({ users }) {
 
   return (
     <div>
