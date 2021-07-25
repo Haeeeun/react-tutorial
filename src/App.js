@@ -12,7 +12,7 @@ function App() {
   const onChange = e => {
     const { name, value } = e.target;
     setInputs({
-      ...inputs,
+      ...inputs, // 스프레드 연산자 --> 0부터 끝까지 반복분을 돌겠다.
       [name]: value
     })
   }
@@ -50,7 +50,8 @@ function App() {
     //배열에 새로운 항목을 추가하는 두가지 방법
     setUsers([...users, user]);
     // setUsers(users.concat(user));
-    
+
+    //인풋 밸류 초기화
     setInputs({
       username: '',
       email: '',
@@ -78,7 +79,11 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+      <UserList
+        users={users}
+        onRemove={onRemove}
+        onToggle={onToggle}
+      />
     </>
   );
 }
