@@ -52,8 +52,8 @@ function App({ onDoSomething }) {
     }
 
     //배열에 새로운 항목을 추가하는 두가지 방법
-    setUsers([...users, user]);
-    // setUsers(users.concat(user));
+    // setUsers([...users, user]);
+    setUsers(users => users.concat(user));
 
     //인풋 밸류 초기화
     setInputs({
@@ -61,19 +61,19 @@ function App({ onDoSomething }) {
       email: '',
     });
     nextId.current += 1;
-  },[username, email, users]);
+  },[username, email]);
 
   const onRemove = useCallback(id => {
-    setUsers(users.filter(user => user.id !== id))
-  },[users]);
+    setUsers(users => users.filter(user => user.id !== id))
+  },[]);
 
   const onToggle = useCallback(id => {
-    setUsers(users.map(
+    setUsers(users => users.map(
       user => user.id === id
       ? {...user, active: !user.active}
         : user
     ))
-  },[users]);
+  }, []);
 
   //users가 바뀔 때에만 호출이 되고 그렇지 않으면 전에 계산된 값을 사용한다. 최적화할 때 사용
   const count = useMemo(() => countActiveUsers(users), [users]);
